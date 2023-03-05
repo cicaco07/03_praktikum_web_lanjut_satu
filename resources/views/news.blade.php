@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>News</title>
-</head>
-<body>
-    <h1>Ini halaman news dengan id {{$id}}</h1>
-</body>
-</html>
+@extends('master.navbar')
+@section('title', 'News')
+@section('content')
+<br><br><br>
+<h2 class="bg-dark text-center text-info p-4">Berita mengenai {{ $id }}
+</h2>
+<br><br><br>
+@endsection

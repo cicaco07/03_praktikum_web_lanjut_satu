@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AboutUsController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,17 +23,22 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/homee', [App\Http\Controllers\HomeeController::class, 'index'])->name('homee');
+Route::get('/homie', [App\Http\Controllers\HomieController::class, 'index'])->name('homie');
 
 Route::prefix('product')->group(function(){
+    Route::get('/', [App\Http\Controllers\ProductController::class, 'index'])->name('product');
     Route::get('/bestseller', [App\Http\Controllers\ProductController::class, 'bestseller'])->name('bestseller');
     Route::get('/food', [App\Http\Controllers\ProductController::class, 'food'])->name('food');
     Route::get('/promo', [App\Http\Controllers\ProductController::class, 'promo'])->name('promo');
 });
 
-Route::get('/news/{id}', [App\Http\Controllers\NewsController::class, 'index']);
+Route::get('/news/{id?}', [App\Http\Controllers\NewsController::class, 'index'])->name('news');
 
 Route::prefix('program')->group(function(){
-    Route::get('/pro1', [App\Http\Controllers\ProgramController::class, 'index']);
-    Route::get('/pro2', [App\Http\Controllers\ProgramController::class, 'pro1']);
+    Route::get('/', [App\Http\Controllers\ProgramController::class, 'index'])->name('program');
+    Route::get('/promo-puasa', [App\Http\Controllers\ProgramController::class, 'puasa'])->name('puasa');
+    Route::get('/makan-gratis', [App\Http\Controllers\ProgramController::class, 'gratis'])->name('gratis');
+    Route::get('/berbagi-takjil', [App\Http\Controllers\ProgramController::class, 'takjil'])->name('takjil');
 });
+
+Route::resource('aboutus', AboutUsController::class)->only(['index','show']);

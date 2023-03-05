@@ -1,6 +1,6 @@
 @extends('master.navbar')
-
-@section('food')
+@section('title', 'Food List')
+@section('content')
 
     <h1 class="p-4 text-primary">Halaman penjualan makanan</h1>
     <div class="d-flex justify-content-around">
@@ -77,6 +77,6 @@
         </div>
     </div>
   </div>
-    
+  <a href="{{ Route('product') }}" class="btn btn-secondary m-4">Kembali</a>
 @endsection
 
