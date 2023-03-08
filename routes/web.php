@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\ContactUsController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -41,4 +42,6 @@ Route::prefix('program')->group(function(){
     Route::get('/berbagi-takjil', [App\Http\Controllers\ProgramController::class, 'takjil'])->name('takjil');
 });
 
-Route::resource('aboutus', AboutUsController::class)->only(['index','show']);
+Route::get('/aboutus', [App\Http\Controllers\AboutUsController::class, 'index'])->name('aboutus');
+
+Route::resource('contactus', ContactUsController::class)->only('index','destroy');

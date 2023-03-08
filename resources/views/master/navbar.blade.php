@@ -44,6 +44,9 @@
               <li class="nav-item px-4">
                 <a class="nav-link" href="{{ Route('news') }}">News</a>
               </li>
+              <li class="nav-item px-4">
+                <a class="nav-link" href="{{ Route('aboutus') }}">About Us</a>
+              </li>
             </ul>
             <form class="d-flex px-4">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
